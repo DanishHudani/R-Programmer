@@ -31,5 +31,19 @@ oceania_1952 <- gapminder %>% filter(continent == "Oceania", year == 1952)
 ggplot(oceania_1952, aes(x = country, y = gdpPercap)) + geom_col()
 
 
+gapminder_1952 <- gapminder %>%
+  filter(year == 1952) %>%
+  mutate(pop_by_mil = pop / 1000000)
+
+# Create a histogram of population (pop_by_mil)
+ggplot(gapminder_1952, aes(x = pop_by_mil)) + geom_histogram(bins = 50)
+
+gapminder_1952 <- gapminder %>%
+  filter(year == 1952)
+
+# Create a histogram of population (pop), with x on a log scale
+ggplot(gapminder_1952, aes(x = pop)) + geom_histogram() + scale_x_log10()
+
+
 
 
