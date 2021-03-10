@@ -23,18 +23,18 @@ minor
 
 
 # How long does it take to read movies from CSV?
-system.time(read.csv("C:/Users/ABC/Desktop/Datacamp/R-Programmer/datasets/movies.csv", header = FALSE))
+system.time(read.csv("datasets/movies.csv", header = FALSE))
 
 # How long does it take to read movies from RDS?
-system.time(readRDS("C:/Users/ABC/Desktop/Datacamp/R-Programmer/datasets/movies.rds"))
+system.time(readRDS("datasets/movies.rds"))
 
 
 # Load the microbenchmark package
 library(microbenchmark)
 
 # Compare the two functions
-compare <- microbenchmark(read.csv("C:/Users/ABC/Desktop/Datacamp/R-Programmer/datasets/movies.csv", header = FALSE), 
-                          readRDS("C:/Users/ABC/Desktop/Datacamp/R-Programmer/datasets/movies.rds"), 
+compare <- microbenchmark(read.csv("datasets/movies.csv", header = FALSE), 
+                          readRDS("datasets/movies.rds"), 
                           times = 10)
 
 # Print compare
@@ -45,7 +45,7 @@ print(compare)
 library(benchmarkme)
 
 # Assign the variable ram to the amount of RAM on this machine
-ram <- get_ram() #couldnot determined the RAM
+ram <- get_ram() #could not determined the RAM
 ram <- system("wmic MemoryChip get Capacity", intern=TRUE)
 ram
 
