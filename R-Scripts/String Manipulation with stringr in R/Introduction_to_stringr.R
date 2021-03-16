@@ -69,6 +69,56 @@ table(girl_first_letter)
 girl_last_letter <- str_sub(girl_names, -1, -1)
 table(girl_last_letter)
 
+boy_df <- babynames %>% filter(sex == "M", year == 2014)
+
+# Look for pattern "zz" in boy_names
+contains_zz <- str_detect(boy_names, pattern = "zz")
+
+# Examine str() of contains_zz
+str(contains_zz)
+
+# How many names contain "zz"?
+sum(contains_zz)
+
+# Which names contain "zz"?
+boy_names[contains_zz]
+
+# Which rows in boy_df have names that contain "zz"?
+boy_df[contains_zz, ]
+
+
+
+
+# Find boy_names that contain "zz"
+str_subset(boy_names, pattern = "zz")
+
+# Find girl_names that contain "zz"
+str_subset(girl_names, pattern = "zz")
+
+# Find girl_names that contain "U"
+starts_U <- str_subset(girl_names, pattern = "U")
+starts_U
+
+# Find girl_names that contain "U" and "z"
+str_subset(starts_U, pattern = "z")
+
+
+# Count occurrences of "a" in girl_names
+number_as <- str_count(girl_names, pattern = "a")
+
+# Count occurrences of "A" in girl_names
+number_As <- str_count(girl_names, pattern = "A")
+
+# Histograms of number_as and number_As
+hist(number_as)
+hist(number_As)
+
+# Find total "a" + "A"
+total_as <- number_as + number_As
+
+# girl_names with more than 4 a's
+girl_names[total_as > 4]
+
 
 
 
