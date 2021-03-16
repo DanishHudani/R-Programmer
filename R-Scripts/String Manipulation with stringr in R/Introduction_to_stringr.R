@@ -181,7 +181,33 @@ lapply(word_lengths, mean)
 
 
 
+# Some IDs
+ids <- c("ID#: 192", "ID#: 118", "ID#: 001")
+ids
 
+# Replace "ID#: " with ""
+id_nums <- str_replace(ids, "ID#: ", "")
+id_nums
+
+# Turn id_nums into numbers
+id_ints <- as.numeric(id_nums)
+id_ints
+
+
+
+
+# Some (fake) phone numbers
+phone_numbers <- c("510-555-0123", "541-555-0167")
+phone_numbers
+
+# Use str_replace() to replace "-" with " "
+str_replace(phone_numbers, "-", " ")
+
+# Use str_replace_all() to replace "-" with " "
+str_replace_all(phone_numbers, "-", " ")
+
+# Turn phone numbers into the format xxx.xxx.xxxx
+str_replace_all(phone_numbers, "-", ".")
 
 
 
